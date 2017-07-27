@@ -93,6 +93,8 @@ M（Menu）菜单管理。
 
 ```
 git clone https://github.com/jachohx/urpm.git
+或
+git clone https://git.oschina.net/jacho/urpm.git
 ```
 
 ## 安装依赖
