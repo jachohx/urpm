@@ -269,7 +269,7 @@ protected $listen = [
 
 ## 更新日志
 
-- [![v1.0.0](http://img.shields.io/badge/zip-v1.0.0-blue.svg)](https://github.com/jachohx/urpm/archive/v1.0.0.zip)
+- [![v1.0.0](http://img.shields.io/badge/zip-v1.0.0-blue.svg)](https://github.com/jachohx/urpm/archive/1.0.0.zip)
   - 初始化版本
 
 如果你喜欢这个开源项目，记得在右上角点个 star 哦，谢谢：）
