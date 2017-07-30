@@ -27,9 +27,9 @@
                         <form method="POST" id="form" action="/menu" class="form-horizontal" accept-charset="UTF-8" pjax-container="">
                             <div class="box-body">
                                 <div class="form-group">
-                                    <label for="parent_id" class="col-sm-2 control-label">上级菜单</label>
-                                    <div class="col-sm-7">
-                                        {{ $tab = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' }}
+                                    <label for="parent_id" class="col-sm-3 control-label">上级菜单</label>
+                                    <div class="col-sm-8">
+                                        <?php $tab = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' ?>
                                         <select class="form-control" style="width: 100%;" id="parent_id" name="parent_id"
                                                 tabindex="-1" aria-hidden="true">
                                             <option value="0">根目录</option>
@@ -40,8 +40,8 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="title" class="col-sm-2 control-label">菜单名</label>
-                                    <div class="col-sm-7">
+                                    <label for="title" class="col-sm-3 control-label">菜单名</label>
+                                    <div class="col-sm-8">
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="fa fa-pencil"></i></span>
                                             <input type="text" id="title" name="title" value="" class="form-control" placeholder="输入菜单名">
@@ -49,8 +49,8 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="icon" class="col-sm-2 control-label">图标</label>
-                                    <div class="col-sm-7">
+                                    <label for="icon" class="col-sm-3 control-label">图标</label>
+                                    <div class="col-sm-8">
                                         <div class="input-group">
                                             <a href="#" class="btn btn-default"><i class="fa fa-bars" id="menu-icon"></i></a>
                                             <input type="hidden" name="icon" value="fa-bars">
@@ -58,16 +58,16 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="icon" class="col-sm-2 control-label"></label>
-                                    <div class="col-sm-7">
+                                    <label for="icon" class="col-sm-3 control-label"></label>
+                                    <div class="col-sm-8">
                                         <div class="input-group">
                                             <div id="iconpicker"></div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="uri" class="col-sm-2 control-label">链接</label>
-                                    <div class="col-sm-7">
+                                    <label for="uri" class="col-sm-3 control-label">链接</label>
+                                    <div class="col-sm-8">
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="fa fa-pencil"></i></span>
                                             <input type="text" id="uri" name="uri" value="" class="form-control" placeholder="输入链接">
@@ -75,8 +75,8 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="uri" class="col-sm-2 control-label">路由</label>
-                                    <div class="col-sm-7">
+                                    <label for="uri" class="col-sm-3 control-label">路由</label>
+                                    <div class="col-sm-8">
                                         <div class="input-group">
                                             <select class="form-control" name="route_key">
                                                 <option value="url">URL</option>
@@ -88,8 +88,8 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="roles" class="col-sm-2 control-label">权限</label>
-                                    <div class="col-sm-7">
+                                    <label for="roles" class="col-sm-3 control-label">权限</label>
+                                    <div class="col-sm-8">
                                         <select class="form-control" id="roles" name="roles[]" multiple="">
                                             <?php foreach($roles as $role) { ?>
                                                 <option value="{{ $role->id }}">{{ $role->display_name }}</option>
@@ -103,9 +103,9 @@
 
                             <!-- /.box-body -->
                             <div class="box-footer">
-                                <div class="col-sm-2">
+                                <div class="col-sm-3">
                                 </div>
-                                <div class="col-sm-2">
+                                <div class="col-sm-3">
                                     <div class="btn-group pull-left">
                                         <button type="submit" class="btn btn-warning pull-right">重置</button>
                                     </div>
@@ -204,20 +204,22 @@
             $('.menu-tree-refresh').click(function () {
                 location.reload();
             });
-        });
-    </script>
-    <script>
-        $("#iconpicker").iconpicker({
-            icon: 'fa-bars',
-            rows: 9,
-            cols: 9,
-            iconset: 'fontawesome',
-        });
-        $('#iconpicker').on('change', function(e) {
-            var icon = e.icon;
-            $('#menu-icon').attr('class', '').addClass('fa ' + icon);
-            $("input[name='icon']").val(icon);
 
+            //iconpicker
+            var width = $('#iconpicker').parent().parent().width();
+            var cols = Math.floor(width / 39);
+            $("#iconpicker").iconpicker({
+                icon: 'fa-bars',
+                rows: 9,
+                cols: cols,
+                iconset: 'fontawesome',
+            });
+            $('#iconpicker').on('change', function(e) {
+                var icon = e.icon;
+                $('#menu-icon').attr('class', '').addClass('fa ' + icon);
+                $("input[name='icon']").val(icon);
+
+            });
         });
     </script>
 @endsection

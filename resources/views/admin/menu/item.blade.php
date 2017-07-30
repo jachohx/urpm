@@ -30,7 +30,7 @@
                                 <div class="form-group">
                                     <label for="parent_id" class="col-sm-2 control-label">上级菜单</label>
                                     <div class="col-sm-10">
-                                        {{ $tab = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' }}
+                                        <?php $tab = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' ?>
                                         <select class="form-control" style="width: 100%;" id="parent_id" name="parent_id"
                                                 tabindex="-1" aria-hidden="true">
                                             <option value="0">根目录</option>
