@@ -45,7 +45,7 @@ class PermissionController extends RestfulBaseController
                 $permissions = $permissions->where($inputKey, 'LIKE', '%' . $inputValue . '%');
             }
         }
-        $pager = $permissions->orderBy('id', 'DESC')->paginate(10);
+        $pager = $permissions->orderBy('id', 'DESC')->paginate();
         return view('admin.permission.list', compact('pager'));
     }
 

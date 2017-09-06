@@ -29,7 +29,7 @@ class LogController extends BaseController
             $sql->where('admin_op_log.created_at', '<=', strtotime($request->get('endTime'))+24*3600-1);
         }
         $sql->select('admin_op_log.*');
-        $pager = $sql->orderBy('admin_op_log.created_at', 'desc')->paginate(10)->appends($request->all());
+        $pager = $sql->orderBy('admin_op_log.created_at', 'desc')->paginate()->appends($request->all());
         return view('admin.log.list', compact('pager'));
     }
 

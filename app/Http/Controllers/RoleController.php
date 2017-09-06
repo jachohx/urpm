@@ -43,7 +43,7 @@ class RoleController extends RestfulBaseController
                 $roles = $roles->where($inputKey, 'LIKE', '%' . $inputValue . '%');
             }
         }
-        $pager = $roles->orderBy('id', 'DESC')->paginate(10);
+        $pager = $roles->orderBy('id', 'DESC')->paginate();
         return view('admin.role.list', compact('pager'));
     }
 

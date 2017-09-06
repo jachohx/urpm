@@ -20,7 +20,7 @@ class LoginLogController extends BaseController
         if(true == $request->has('endTime')) {
             $sql->where('created_at', '<=', $request->get('endTime'));
         }
-        $pager = $sql->orderBy('id', 'DESC')->paginate(10);
+        $pager = $sql->orderBy('id', 'DESC')->paginate();
         return view('admin.loginLog.list', compact('pager'));
     }
 

@@ -50,7 +50,7 @@ class UserController extends RestfulBaseController
                 $users = $users->where($inputKey, 'LIKE', '%' . $inputValue . '%');
             }
         }
-        $pager = $users->orderBy('id', 'DESC')->paginate(10);
+        $pager = $users->orderBy('id', 'DESC')->paginate();
         return view('admin.user.list', compact('pager'));
     }
 
