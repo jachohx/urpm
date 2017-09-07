@@ -6,6 +6,13 @@
 
      <ul class="pagination pagination-sm no-margin pull-right" id="paginationBar">
          <?php
+             //把url上的参数加入到分页的参数里，方便下边的previousPageUrl、url、nextPageUrl使用
+             $inputs = Input::all();
+             foreach ($inputs as $key => $value) {
+                 $pager->addQuery($key, $value);
+             }
+         ?>
+         <?php
              $pageNumList = [];
              $pageNums = [];
              $currentNum = $pager->currentPage();
@@ -52,12 +59,37 @@
                      $pageNums[] = $maxNum;
                  }
              }
+             $perPages = [10, 20, 30, 40, 50, 75, 100];
          ?>
-
          <li class="{{ $pager->currentPage() == 1 ? 'disabled' : '' }}"><a href="{{ $pager->previousPageUrl() }}">上一页</a></li>
          @foreach($pageNums as $num)
          <li class="{{ $num == "..." ? "disabled" : ($num == $pager->currentPage() ? 'active' : '') }}"><a href="{{ $num != '...' ? $pager->url($num) : "#" }}">{{ $num }}</a></li>
          @endforeach
          <li class="{{ $pager->currentPage() == $pager->lastPage() ? 'disabled' : '' }}"><a href="{{ $pager->nextPageUrl() }}">下一页</a></li>
      </ul>
+     {{--{{ $pager->render() }}--}}
+     <div class="pagination pagination-sm no-margin pull-right">
+         <form id="pageForm">
+             @foreach(Input::all() as $key => $value)
+             @if ($key != 'perPage')
+             <input type="hidden" name="{{ $key }}" value="{{ $value }}">
+             @endif
+             @endforeach
+             <select class="input-sm" name="perPage">
+                 @foreach($perPages as $pageSize)
+                 <option value="{{ $pageSize }}" {{ $pageSize == $pager->perPage() ? 'selected' : '' }}>{{ $pageSize }}</option>
+                 @endforeach
+             </select>
+             &ensp;&ensp;
+         </form>
+     </div>
+     @section('js')
+     <script>
+         $(function () {
+             $("#pageForm select[name=perPage]").change(function () {
+                 $("#pageForm").submit();
+             });
+         });
+     </script>
+     @endsection
  </div>

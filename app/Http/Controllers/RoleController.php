@@ -39,7 +39,7 @@ class RoleController extends RestfulBaseController
         $roles = Role::query();
         $inputs = Input::all();
         foreach ($inputs as $inputKey => $inputValue) {
-            if ($inputValue !== '' && $inputKey != 'page') {
+            if ($inputValue !== '' && $inputKey != 'page' && $inputKey != 'perPage') {
                 $roles = $roles->where($inputKey, 'LIKE', '%' . $inputValue . '%');
             }
         }

@@ -41,7 +41,7 @@ class PermissionController extends RestfulBaseController
         $permissions = Permission::query();
         $inputs = Input::all();
         foreach ($inputs as $inputKey => $inputValue) {
-            if ($inputValue !== '' && $inputKey != 'page') {
+            if ($inputValue !== '' && $inputKey != 'page' && $inputKey != 'perPage') {
                 $permissions = $permissions->where($inputKey, 'LIKE', '%' . $inputValue . '%');
             }
         }

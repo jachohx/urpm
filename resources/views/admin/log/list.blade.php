@@ -57,7 +57,7 @@
                                         ?>
                                         <tr>
                                             <td>{{ $item->id }}</td>
-                                            <td>{{ isset($item->user) ? str_replace(Input::get('userName',''), "<span style=\"color: red\">" . Input::get('userName','') . "</span>", $item->user->username) : '用户已删除（'.$item->user_id.')' }}</td>
+                                            <td><?php echo isset($item->user) ? str_replace(Input::get('userName',''), "<span style=\"color: red\">" . Input::get('userName','') . "</span>", $item->user->username) : '用户已删除（'.$item->user_id.')' ?></td>
                                             <td>@if(isset($item->user) && isset($item->user->roles))
                                                 @foreach($item->user->roles as $role)
                                                 {{ $role['display_name'] }} <br/>

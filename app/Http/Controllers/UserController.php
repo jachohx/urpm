@@ -46,7 +46,7 @@ class UserController extends RestfulBaseController
         $users = User::query();
         $inputs = Input::all();
         foreach ($inputs as $inputKey => $inputValue) {
-            if ($inputValue !== '' && $inputKey != 'page') {
+            if ($inputValue !== '' && $inputKey != 'page' && $inputKey != 'perPage') {
                 $users = $users->where($inputKey, 'LIKE', '%' . $inputValue . '%');
             }
         }
