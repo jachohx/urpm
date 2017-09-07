@@ -84,6 +84,7 @@
          </form>
      </div>
      @section('js')
+     @parent
      <script>
          $(function () {
              $("#pageForm select[name=perPage]").change(function () {
