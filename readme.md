@@ -57,6 +57,7 @@ M（Menu）菜单管理。
 	- [修改`config/app.php`注册`aliases`](#修改-configappphp-注册-aliases)
 	- [修改`routes/web.php`注册`route`](#修改-routeswebphp-注册-route)
 	- [修改`app/Providers/EventServiceProvider.php`注册`listen`](#修改-appproviderseventserviceproviderphp-注册-listen)
+- [nginx参考](#nginx参考)
 - [感谢](#感谢)
 - [更新日志](#更新日志)
 
@@ -262,6 +263,31 @@ protected $listen = [
     	'App\Listeners\DatabaseEventListener'
     ]
 ];
+```
+
+## nginx参考
+```php
+server {
+    listen       8088;
+    server_name  demo.jachohx.com;
+    location / {
+        index index.php index.html;
+        root /var/www/urpm/public/;
+        try_files $uri $uri/ /index.php?$query_string;
+    }
+    location ~ \.php$ {
+        root   /var/www/urpm/public/;
+        fastcgi_pass 127.0.0.1:9000;
+        fastcgi_index index.php;
+        fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+        fastcgi_intercept_errors on;
+        include /etc/nginx/fastcgi.conf;
+    }
+    location ~* \.(css|js|jpg|woff|woff2|png)$ {
+        root /var/www/urpm/resources/assets/;
+        break;
+    }
+}
 ```
 
 ## 感谢
