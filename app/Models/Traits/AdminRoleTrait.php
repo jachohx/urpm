@@ -41,7 +41,7 @@ trait AdminRoleTrait
      */
     public function users()
     {
-        return $this->belongsToMany(Config::get('auth.model'), Config::get('admin.role_user_table'),
+        return $this->belongsToMany(Config::get('auth.providers.users.model'), Config::get('admin.role_user_table'),
             Config::get('admin.role_foreign_key'),Config::get('admin.user_foreign_key'));
     }
 
