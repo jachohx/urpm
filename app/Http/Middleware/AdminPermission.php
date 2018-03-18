@@ -64,7 +64,7 @@ class AdminPermission
                 if ($len > $urlMatchMaxLen) {
                     $menu = $m;
                 }
-            } else if($params[0] == 'controller' && isset($permissionRules[$params[1]]) ) {
+            } else if($params[0] == 'controller' && in_array(strtolower($params[1]), $permissionRules) ) {
                 $menu = $m;
                 break;
             }
