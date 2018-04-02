@@ -1,6 +1,6 @@
 @section('title', "角色管理")
 @section('content_title', '角色管理')
-@section('content_title_small', "$role->display_name <small>{{ $role->name }}</small>")
+@section('content_title_small', "$role->display_name $role->name")
 @section('css')
     <link rel="stylesheet" href="{{ $assets_url ."/plugins/iCheck/all.css" }}">
 @endsection

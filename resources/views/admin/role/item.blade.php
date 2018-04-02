@@ -1,6 +1,6 @@
 @section('title', "角色管理")
 @section('content_title', '角色管理')
-@section('content_title_small', isset($item) ? "编辑<small>Role Id: $item->id</small>" : "增加")
+@section('content_title_small', isset($item) ? "编辑Role Id: $item->id" : "增加")
 @section('content')
     <!-- Main content -->
     <section class="content" id="pjax-container">

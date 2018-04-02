@@ -38,6 +38,7 @@ $(function () {
             location.reload();
         }).fail(function(data) {
             var params = data.responseJSON;
+            if (params.errors !== undefined) params = params.errors;
             var status = data.status;
             //表格验证错误
             if (status == 422) {

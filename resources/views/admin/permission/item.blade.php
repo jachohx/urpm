@@ -1,6 +1,6 @@
 @section('title', "权限管理")
 @section('content_title', '权限列表')
-@section('content_title_small',  isset($item) ? "编辑<small>Permission Id: $item->id</small>" : "增加")
+@section('content_title_small',  isset($item) ? "编辑 Permission Id: $item->id" : "增加")
 @section('css')
     <link rel="stylesheet" href="{{ $assets_url }}/plugins/select2/select2.min.css">
     <style>

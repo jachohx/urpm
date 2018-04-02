@@ -1,6 +1,6 @@
 @section('title', "用户信息")
 @section('content_title', '用户信息')
-@section('content_title_small', "<small>User Id: $item->id </small>")
+@section('content_title_small', "User Id: $item->id")
 @section('content')
     <!-- Main content -->
     <section class="content">
