@@ -9,7 +9,7 @@
              //把url上的参数加入到分页的参数里，方便下边的previousPageUrl、url、nextPageUrl使用
              $inputs = Input::all();
              foreach ($inputs as $key => $value) {
-                 $pager->addQuery($key, $value);
+                 $pager->appends($key, $value);
              }
          ?>
          <?php
