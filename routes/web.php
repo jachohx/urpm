@@ -10,7 +10,7 @@ Route::group(['prefix' => '/auth', 'namespace' => "Auth", 'middleware' => ['csrf
 
 //
 Route::group(['prefix' => '/', 'middleware' => ['auth', 'permission']], function () {
-    Route::resource('/menu/tree',           'MenuController@tree');
+    Route::post('/menu/tree',               'MenuController@tree');
     Route::resource('/menu',                'MenuController');
     Route::get('/role/{id}/permission',     'RoleController@permissionEdit');
     Route::post('/role/{id}/permission',    'RoleController@permissionStore');
